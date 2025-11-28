@@ -1,46 +1,46 @@
-"use client";
-
+"use client"
 import Link from "next/link";
 import "./Navbar.css";
 import Image from "next/image";
 import { useState } from "react";
 
-const links = [
-  { label: "Home", href: "/home" },
-  { label: "Discounts", href: "/discounts" },
-  { label: "Categories", href: "/categories" },
-];
 
 
 
 const Navbar = () => {
 
-  const [isLogged, setIsLogged] = useState(null)
+  const [isLogged, setIsLogged] = useState<boolean>(false)
+  const [search, setSearch] = useState<string>("")
 
   return (
     <nav>
-      <Link href="/" className="nav-logo">
-        {/* <Image src="" width={20} height={20} alt="Company Logo" /> */}
-      </Link>
 
-      <ul>
-        {links.map((link) => (
-          <li key={link.href} className="nav-link">
-            <Link href={link.href}>{link.label}</Link>
-          </li>
-        ))}
-      </ul>
+      <Link href="/"></Link>
 
-      {
-        isLogged ?
-          <div>
-            <label>Profle</label>
-          </div>
-          :
-          <Link href="/login">
-            Login / Sing in
-          </Link>
-      }
+      <div className="search-container">
+        <input className="search-input"
+          onChange={
+            (e) => {
+              setSearch(e.target.value)
+            }
+          }
+          value={search}
+          placeholder="Search"
+        />
+        <i className="bi bi-search"></i>
+      </div>
+
+      <div >
+        {/* User Profile */}
+        <Link href="/profile" className="nav-icon">
+          <i></i>
+        </Link>
+
+        {/* Shopping Cart */}
+        <Link href="/cart" className="nav-icon">
+          <i className="bi bi-cart4"></i>
+        </Link>
+      </div>
 
     </nav>
   );

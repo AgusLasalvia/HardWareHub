@@ -1,13 +1,19 @@
 nav {
-  display: flex;
-  justify-content: space-around;
+  height: 60px;
   width: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
+  /* background-color: red; */
+  /* border-radius: 10px; */
+  /* border: 1px solid red; */
+  text-decoration: none;
+  color: white;
 }
 
-nav>ul {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 30px;
+nav i {
+  color: white !important;
+
 }
